@@ -23,17 +23,17 @@ public class ClientManagementServiceApplication {
 		SpringApplication.run(ClientManagementServiceApplication.class, args);
 	}
 
-	@EventListener(ApplicationReadyEvent.class)
+	//@EventListener(ApplicationReadyEvent.class)
 	public void startApp() {
 		var i1 = new Item();
-		i1.setName("Mobile");
-		i1.setUnitPrice(new BigDecimal("100.25"));
+		i1.setName("Mango");
+		i1.setUnitPrice(new BigDecimal("110.25"));
 		var i2 = new Item();
-		i2.setName("Laptop");
-		i2.setUnitPrice(new BigDecimal("200.25"));
+		i2.setName("Pineapple");
+		i2.setUnitPrice(new BigDecimal("21.25"));
 		var i3 = new Item();
-		i3.setName("Tab");
-		i3.setUnitPrice(new BigDecimal("150.25"));
+		i3.setName("Chiku");
+		i3.setUnitPrice(new BigDecimal("151.25"));
 
 		this.itemItemRepository.saveAll(List.of(i1, i2, i3));
 	}

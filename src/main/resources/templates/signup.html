@@ -26,6 +26,39 @@
       />
       <br />
       <br />
+      <input
+        type="text"
+        placeholder="enter bulding no"
+        th:field="*{address.buldingNo}"
+      />
+      <br />
+      <input
+        type="text"
+        placeholder="enter ward no"
+        th:field="*{address.wardNo}"
+      />
+      <br />
+      <input type="text" placeholder="enter city" th:field="*{address.city}" />
+      <br />
+      <input
+        type="text"
+        placeholder="enter district"
+        th:field="*{address.district}"
+      />
+      <br />
+      <input
+        type="text"
+        placeholder="enter state"
+        th:field="*{address.state}"
+      />
+      <br />
+      <input
+        type="text"
+        placeholder="enter zipcode"
+        th:field="*{address.zipcode}"
+      />
+      <br />
+      <br />
       <button type="submit">Signup</button>
       <br />
       <a th:href="@{/login}">Login</a>
