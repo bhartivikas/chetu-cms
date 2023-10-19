@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+  </head>
+  <body>
+    <form method="post" th:action="@{/signup}" th:object="${user}">
+      <input
+        type="text"
+        placeholder="enter firstname"
+        th:field="*{firstName}"
+      />
+      <br />
+      <input type="text" placeholder="enter lastname" th:field="*{lastName}" />
+      <br />
+      <input type="email" placeholder="enter email" th:field="*{email}" />
+      <br />
+      <input type="text" placeholder="enter mobile" th:field="*{mobile}" />
+      <br />
+      <input
+        type="password"
+        placeholder="enter password"
+        th:field="*{password}"
+      />
+      <br />
+      <br />
+      <button type="submit">Signup</button>
+      <br />
+      <a th:href="@{/login}">Login</a>
+    </form>
+  </body>
+</html>
