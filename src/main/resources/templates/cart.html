@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <div class="row" th:fragment="carts">
+      <h2>Cart</h2>
+      <h3>Total Items: <span th:text="${cartsItems.totalCount}"></span></h3>
+      <h4>Total Amount: <span th:text="${cartsItems.totalAmount}"></span></h4>
+      <div class="col" th:each="item : ${cartsItems.items}">
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title" th:text="${item.name}">Name</h5>
+            <p class="card-text" th:text="${item.unitPrice}">Price</p>
+
+            <form th:action="@{/remove-item(itemId=${item.id})}" method="POST">
+              <button type="submit" class="btn btn-danger">Remove</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

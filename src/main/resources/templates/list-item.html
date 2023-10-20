@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <div class="row" th:fragment="all-item">
+      <div class="col-4" th:each="item : ${items}">
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title" th:text="${item.name}">Name</h5>
+            <p class="card-text" th:text="${item.unitPrice}">Price</p>
+
+            <form th:action="@{/add-item(itemId=${item.id})}" method="POST">
+              <button type="submit" class="btn btn-warning">Add to cart</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
