@@ -26,7 +26,10 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 
-	@Column(nullable = false, unique = true)
+	// nullable = false | There should be no cart without a user
+	// unique = true | Every user must have only one cart in the table
+	// updatable = false | Cart Items should belongs to one user non-transfarable
+	@Column(nullable = false, unique = true, updatable = false)
 	private String username;
 
 	@ManyToMany

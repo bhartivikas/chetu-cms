@@ -23,8 +23,13 @@ public class CartController {
 
 		CartSaveOrUpdateDto cartDto = new CartSaveOrUpdateDto();
 		cartDto.setItemId(itemId);
+
+		// This method call will add the given item to the cart
 		this.cartService.addItemToCart(cartDto);
 
+		// Here we are redirecting to the home page
+		// It means once the "/add-item" is completed browser will call again GET of
+		// "/home"
 		return "redirect:/home";
 	}
 
@@ -36,6 +41,9 @@ public class CartController {
 		cartDto.setItemId(itemId);
 		this.cartService.removeItemFromCart(cartDto);
 
+		// Here we are redirecting to the home page
+		// It means once the "/remove-item" is completed browser will call again GET of
+		// "/home"
 		return "redirect:/home";
 	}
 

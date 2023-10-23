@@ -9,6 +9,8 @@
     <div th:if="${param.error}">Invalid username and password.</div>
     <div th:if="${param.logout}">You have been logged out.</div>
     <form th:action="@{/login}" method="post">
+
+      <!-- Spring security framework need  name="username" and name="password" to get the username and password for LOGIN -->
       <input type="text" name="username" placeholder="enter username" />
       <input type="password" name="password" placeholder="enter password" />
       <button type="submit">Login</button>

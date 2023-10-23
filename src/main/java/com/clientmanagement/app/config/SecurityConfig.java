@@ -29,16 +29,20 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
+				// PUBLIC URL
 				.authorizeHttpRequests((authorize) -> authorize
 						.requestMatchers("/signup")
 						.permitAll()
 						.anyRequest()
 						.authenticated())
 				.httpBasic(Customizer.withDefaults())
+				// Custom Login Page
 				.formLogin(form -> form
 						.loginPage("/login")
+						// After Successful login
 						.defaultSuccessUrl("/home")
 						.permitAll())
+				// Logout Success URL
 				.logout(logout -> logout
 						.logoutSuccessUrl("/login"));
 		return http.build();
@@ -46,6 +50,9 @@ public class SecurityConfig {
 
 	@Bean
 	UserDetailsService userDetailsService() {
+		// UserDetailsService is a class which return the User object
+		// Here we are overriding #[UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;]
+		// Here UserDetailsService is considered as a Functional interface
 		return email -> {
 			final var user = this.customerRepository
 					.findByEmail(email)
@@ -56,6 +63,7 @@ public class SecurityConfig {
 
 	@Bean
 	PasswordEncoder passwordEncoder() {
+		// It is used to encode and decode user secrete
 		return new BCryptPasswordEncoder();
 	}
 

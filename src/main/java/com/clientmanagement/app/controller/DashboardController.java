@@ -24,9 +24,19 @@ public class DashboardController {
 	public String getHomePage(Model model) {
 		log.info("ACTION: get the dashboard page");
 
+		// CustomerService => Return all the customer data and add it to the VIEW =>
+		// "customers"
 		model.addAttribute("customers", this.customerService.getAllCustomer());
+
+		// ItemService => Return all Item present in database and add it to the VIEW =>
+		// "items"
 		model.addAttribute("items", this.itemService.getAllItems());
+
+		// CartService => Return the cart information for the logged in user and add it
+		// to the view => "cartsItems"
 		model.addAttribute("cartsItems", this.cartService.getCart());
+
+		// Return the VIEW which is "home.html" in our case
 		return "home";
 	}
 
